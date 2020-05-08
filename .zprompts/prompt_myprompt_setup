@@ -9,12 +9,14 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git*' formats "%
-% ${fg[cyan]}%
+% %F{cyan}%
 % (% %b%
-% ${fg[yellow]}%
+% %f%
+% %F{yellow}%
 % %m%u%c%
-% ${fg[cyan]}% )%
-% %{$reset_color%}"
+% %f%
+% %F{cyan}% )%
+% %f%{$reset_color%}"
 
 setprompt() {
   setopt prompt_subst
