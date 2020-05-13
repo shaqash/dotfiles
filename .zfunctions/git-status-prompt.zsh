@@ -23,12 +23,12 @@ parse_git_dirty() {
   local renamed=`echo -n "${git_status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
   local deleted=`echo -n "${git_status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
   local bits=''
-  [ "${renamed}" = "0" ] && bits=">${bits}"
-  [ "${ahead}" = "0" ] && bits="*${bits}"
+  [ "${renamed}" = "0" ] && bits="r${bits}"
+  [ "${ahead}" = "0" ] && bits=">${bits}"
   [ "${newfile}" = "0" ] && bits="+${bits}"
   [ "${untracked}" = "0" ] && bits="?${bits}"
   [ "${deleted}" = "0" ] && bits="x${bits}"
-  [ "${dirty}" = "0" ] && bits="!${bits}"
+  [ "${dirty}" = "0" ] && bits="*${bits}"
   [ ! "${bits}" = "" ] && echo "${bits}" || echo ""
 }
 
