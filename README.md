@@ -1,28 +1,28 @@
 # .files
 
 ### Prompt (.zprompts/)
-> `mypromptv2`
+> `mypromptv2`  
 ![](screenshots/prompt.png)
-> `myprompt`
+> `myprompt`  
 Almost same but using default vcs_info
 ![](screenshots/myprompt.png)
-> `spaceship`
+> `spaceship`  
 ![](screenshots/spaceship.png)
 
 #### Git prompt (.zfunctions/git-status-prompt)
-######Called when using mypromptv2
+*Called when using mypromptv2*
 
 `($BRANCH$BITS$COUNT)`
 
 - **branch** - Current branch name
 - **count** - Total number of changes (status --short)
 - **bits**
-  -- renamed r
-  -- ahead >
-  -- newfile +
-  -- untracked ?
-  -- deleted x
-  -- modified *
+  * renamed r
+  * ahead >
+  * newfile +
+  * untracked ?
+  * deleted x
+  * modified *
 
 ### How to
 ```bash
