@@ -5,7 +5,7 @@ parse_git_branch() {
   if [ ! ${BRANCH} = "" ]
   then
     COUNT=$(git status --short | wc -l)
-    DISPLAY_COUNT=$([ $COUNT ] && echo $COUNT)
+    DISPLAY_COUNT=$([ "$COUNT" -ne "0" ] && echo $COUNT)
     STAT=`parse_git_dirty`
     echo "%B%F{cyan}(${BRANCH}%f%F{yellow}${STAT}${DISPLAY_COUNT}%f%F{cyan})%f%b"
   else
