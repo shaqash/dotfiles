@@ -2,12 +2,12 @@
 
 ### Prompt (.zprompts/)
 > `mypromptv2`  
-![](screenshots/prompt.png)
+![](screenshots/prompt.png)  
 > `myprompt`  
-Almost same but using default vcs_info
-![](screenshots/myprompt.png)
+Almost same but using default vcs_info  
+![](screenshots/myprompt.png)  
 > `spaceship`  
-![](screenshots/spaceship.png)
+![](screenshots/spaceship.png)  
 
 #### Git prompt (.zfunctions/git-status-prompt)
 *Called when using mypromptv2*
