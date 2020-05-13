@@ -1,0 +1,10 @@
+# MY PROMPT
+autoload -U colors && colors
+setprompt() {
+  _exitstr='%B%(?.%F{green}.%F{red})$%f%b'
+  #PS2=$'%_>'
+  PS1='%B%F{cyan}[%f%F{blue}%~%f%F{cyan}]%f'
+  PS1+="\`parse_git_branch\`"
+  PS1+='$_exitstr '
+}
+setprompt

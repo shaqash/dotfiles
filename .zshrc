@@ -14,6 +14,8 @@ bindkey '^[[F' end-of-line
 # PLUGINS
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source ~/.zfunctions/git-status-prompt.zsh 2>/dev/null
+#fpath=( "$HOME/.zfunctions" $fpath )
 
 # PROMPT
 SPACESHIP_PROMPT_SEPARATE_LINE=false
@@ -49,7 +51,7 @@ fpath=( "$HOME/.zprompts" $fpath )
 autoload -Uz promptinit && promptinit
 setopt prompt_subst
 #prompt spaceship
-prompt myprompt
+prompt mypromptv2
 
 # Load aliases
 [ -f ~/.sh_aliases ] && source ~/.sh_aliases

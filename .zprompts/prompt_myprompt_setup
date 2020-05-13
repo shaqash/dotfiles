@@ -6,10 +6,10 @@ precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' unstagedstr '*'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:git*' formats "%
-% %F{cyan}%
+% %B%F{cyan}%
 % (% %b%
 % %f%
 % %F{yellow}%
@@ -22,8 +22,7 @@ setprompt() {
   setopt prompt_subst
   _exitstr='%B%(?.%F{green}.%F{red})$%f%b'
   #PS2=$'%_>'
-  PS1='%F{cyan}[%f%F{blue}%c%f%F{cyan}]%f$vcs_info_msg_0_$_exitstr '
-
+  PS1='%B%F{cyan}[%f%F{blue}%~%f%F{cyan}]%f$vcs_info_msg_0_$_exitstr '
   #RPROMPT=\$vcs_info_msg_0_
 }
 setprompt
