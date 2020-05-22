@@ -1,5 +1,8 @@
 # Executes aliases
-
+alias la='ls -la'
+alias al='ls -la'
+alias c='clear'
+alias v='vim'
 alias zconf='vim $HOME/.zshrc'
 
 ## Create temp dir
