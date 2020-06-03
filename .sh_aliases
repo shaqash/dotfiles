@@ -2,7 +2,9 @@
 alias la='ls -la'
 alias al='ls -la'
 alias c='clear'
+alias vim='nvim'
 alias v='vim'
+alias vS='vim -S'
 alias zconf='vim $HOME/.zshrc'
 
 ## Create temp dir

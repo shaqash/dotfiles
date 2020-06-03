@@ -1,60 +1,88 @@
-"" General
-color slate
-" Color scheme
-set number relativenumber
-" Show line numbers
-set linebreak
-" Break lines at word (requires Wrap lines)
-set showbreak=+++ 
-" Wrap-broken line prefix
-set textwidth=80
-" Line wrap (number of cols)
-set colorcolumn=80
-" Color column
-set showmatch
-" Highlight matching brace
-set visualbell
-" Use visual bell (no beeping)
-syntax on
-" Syntax highlighting
-set nowrap
-" No text wrap
-set hlsearch
-" Highlight all search results
-set smartcase
-" Enable smart-case search
-set ignorecase
-" Always case-insensitive
-set incsearch
-" Searches for strings incrementally
-set autoindent
-" Auto-indent new lines
-filetype plugin indent on
-" Enable filetype indentation
-set expandtab
-" Use spaces instead of tabs
-set shiftwidth=2
-" Number of auto-indent spaces
-set smartindent
-" Enable smart-indent
-set smarttab
-" Enable smart-tabs
-set softtabstop=2
-" Number of spaces per Tab
-set wildmode=longest,list,full
-" Enable autocompletion:
+packloadall
+call plug#begin('~/.vim/plugged')
 
+Plug 'sheerun/vim-polyglot'
+Plug 'dikiaap/minimalist'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+"Plug 'dense-analysis/ale'
+"Plug 'ycm-core/YouCompleteMe'
+
+call plug#end()
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+"Close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+let mapleader = " "
+nmap <leader>f :CocCommand prettier.formatFile<cr>
+noremap <leader>b :Lex!<CR>
+nnoremap <Leader>, :vertical resize +5<CR>
+nnoremap <Leader>. :vertical resize -5<CR>
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+set t_Co=256
+if (has("termguicolors"))
+  set termguicolors
+endif
+autocmd vimenter * colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+syntax on
+set signcolumn=no
+set updatetime=300
+set number 
+set linebreak
+set showbreak=+++ 
+set textwidth=100
+set colorcolumn=100
+set spelllang=he,en_us
+set spell
+set showmatch
+set visualbell
+set nowrap
+set nohlsearch
+set smartcase
+set ignorecase
+set incsearch
+set autoindent
+set expandtab
+set shiftwidth=2
+set smartindent
+set smarttab
+set softtabstop=2
+set wildmode=longest,list,full
 set path+=**
 set wildmenu
 set wildignore+=**/node_modules/**
 set hidden
-
-"" Advanced
 set ruler
-" Show row and column ruler information
-
 set undolevels=1000
-" Number of undo levels
 set backspace=indent,eol,start
-" Backspace behaviour
-highlight ColorColumn ctermbg=10
+
