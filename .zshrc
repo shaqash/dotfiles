@@ -15,7 +15,6 @@ bindkey '^[[F' end-of-line
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/.zfunctions/git-status-prompt.zsh 2>/dev/null
-#fpath=( "$HOME/.zfunctions" $fpath )
 
 # PROMPT
 SPACESHIP_PROMPT_SEPARATE_LINE=false
@@ -50,15 +49,12 @@ SPACESHIP_TERRAFORM_SHOW=false
 fpath=( "$HOME/.zprompts" $fpath )
 autoload -Uz promptinit && promptinit
 setopt prompt_subst
-#prompt spaceship
 prompt mypromptv2
 
 # Load aliases
 [ -f ~/.sh_aliases ] && source ~/.sh_aliases
 
 # PATH
-export PATH=.scripts/:$PATH
-export PATH="$PATH:`yarn global bin`"
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
