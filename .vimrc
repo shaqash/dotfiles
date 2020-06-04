@@ -52,9 +52,10 @@ set t_Co=256
 if (has("termguicolors"))
   set termguicolors
 endif
-autocmd vimenter * colorscheme gruvbox
+colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 syntax on
+set background=dark
 set signcolumn=no
 set updatetime=300
 set number 
