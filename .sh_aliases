@@ -1,0 +1,43 @@
+# Executes aliases
+alias la='ls -la'
+alias al='ls -la'
+alias c='clear'
+alias vim='nvim'
+alias v='vim'
+alias vS='vim -S'
+alias zconf='vim $HOME/.zshrc'
+alias vimode='bindkey -v'
+alias code="codium"
+
+## Create temp dir
+alias tmpc='TMPDIR="$(mktemp -d)" && echo $TMPDIR >> ~/.tmpdirs && cd $TMPDIR'
+## CD to last temp dir
+alias tmpl='cd $(tail -n 1 ~/.tmpdirs)'
+
+# dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/Dotfiles --work-tree=$HOME'
+
+# apt
+alias a='sudo apt'
+alias d='sudo dnf'
+
+# turn on xbox controller
+alias xbox='sudo xboxdrv --silent'
+
+# Alternate between java versions. only works on ubuntu
+alias altjava='sudo update-alternatives --config java'
+
+# Git
+alias g='git'
+alias gpom='git push origin master'
+
+# Fix .gitignore
+# Usually after adding gitignore file to an already existing repo, old files won't disappear.
+# Use this to make'em
+alias fix-gitignore='git rm -r --cached . && git add . && git commit -m ".gitignore fix"'
+
+# Sync origin with upstream
+alias gitsync='git pull upstream master && git checkout master && git push origin master'
+
+# npx react-native
+alias rn='npx react-native'
