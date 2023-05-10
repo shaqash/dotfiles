@@ -1,0 +1,28 @@
+# MY PROMPT
+autoload -U colors && colors
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '*'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*' formats "%
+% %B%F{cyan}%
+% (% %b%
+% %f%
+% %F{yellow}%
+% %m%u%c%
+% %f%
+% %F{cyan}% )%
+% %f%{$reset_color%}"
+
+setprompt() {
+  setopt prompt_subst
+  _exitstr='%B%(?.%F{green}.%F{red})$%f%b'
+  #PS2=$'%_>'
+  PS1='%B%F{cyan}[%f%F{blue}%~%f%F{cyan}]%f$vcs_info_msg_0_$_exitstr '
+  #RPROMPT=\$vcs_info_msg_0_
+}
+setprompt

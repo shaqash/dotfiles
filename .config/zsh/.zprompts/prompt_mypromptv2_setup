@@ -1,0 +1,16 @@
+# MY PROMPT
+autoload -U colors && colors
+autoload -Uz vcs_info
+precmd () { vcs_info }
+zstyle ':vcs_info:git*' check-for-changes true
+zstyle ':vcs_info:git*' stagedstr '^'
+zstyle ':vcs_info:git*' unstagedstr '*'
+zstyle ':vcs_info:git*' check-for-staged-changes true
+zstyle ':vcs_info:git*' formats '%F{cyan}(%b%f%F{yellow}%a%m%u%c%f%F{cyan})%f'
+zstyle ':vcs_info:git*' actionformats '%F{cyan}(%b|%a%f%F{yellow}%u%c%F{cyan})%f'
+
+PS1='%B%F{cyan}[%f%F{blue}%1~%f%F{cyan}]%f$vcs_info_msg_0_'
+#PS1='%B%F{cyan}[%f%F{blue}%1~%f%F{cyan}]%f'
+#PS1+="\`parse_git_branch\`"
+_exitstr='%B%(?.%F{green}.%F{red})$%f%b'
+PS1+='$_exitstr '
